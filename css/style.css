@@ -1,0 +1,57 @@
+html {
+  height: 100%;
+}
+body {
+  background-image: url("http://splashreport.com/wp-content/uploads/2018/01/daredevil.jpg");
+  height: 100%;
+  width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+canvas {
+  position: absolute;
+}
+video{
+    box-shadow: 0px 0px 40px 0px #c40414;
+}
+
+.button-classic {
+  background-color: #fbeee0;
+  border: 2px solid #422800;
+  border-radius: 30px;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 18px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin-top: 1rem;
+}
+
+.button-classic:hover {
+  background-color: #fff;
+}
+
+.button-classic:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  .button-classic {
+    min-width: 120px;
+    padding: 0 25px;
+  }
+}

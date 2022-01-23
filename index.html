@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Recognition</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <div class="content">
+        <video class="glow" id="videoInput" width="720" height="550" muted controls autoplay>
+    </div>
+    <div class="buttons">
+        <button class="button-classic" role="button" onclick="recognizeFaces();">Detect</button>
+    </div>
+
+    <script defer src="./js/face-api.min.js"></script>
+    <script defer src="./js/script.js"></script>
+</body>
+
+</html>
