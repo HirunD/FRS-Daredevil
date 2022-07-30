@@ -21,6 +21,11 @@ function start() {
 }
 
 async function recognizeFaces() {
+
+  let speakStr = "Recognition Started";
+      const utterance = new SpeechSynthesisUtterance(speakStr);
+      speechSynthesis.speak(utterance);
+
   const labeledDescriptors = await loadLabeledImages();
   //   console.log(labeledDescriptors);
   const faceMatcher = new faceapi.FaceMatcher(labeledDescriptors, 0.7);
@@ -105,16 +110,16 @@ async function recognizeFaces() {
 }
 
 function loadLabeledImages() {
-  const labels = [
-    "Black Widow",
-    "Captain America",
-    "Hawkeye",
-    "Jim Rhodes",
-    "Tony Stark",
-    "Thor",
-    "Captain Marvel",
-  ];
-  // const labels = ['Prashant Kumar'] // for WebCam
+  // const labels = [
+  //   "Captain America",
+  //   "Hawkeye",
+  //   "Jim Rhodes",
+  //   "Tony Stark",
+  //   "Thor",
+  //   "Captain Marvel",
+  //   "Hirun Dilshan",
+  // ];
+  const labels = ['Hirun Dilshan'] // for WebCam
   return Promise.all(
     labels.map(async (label) => {
       const descriptions = [];
@@ -134,4 +139,28 @@ function loadLabeledImages() {
     })
   );
 }
+
+
+
+      
+document.getElementById("upload_widget").addEventListener("click", function(){
+ dpUpload();
+}, false);
+
+var dplink = "";
+
+function dpUpload() {
+    var myWidget = cloudinary.createUploadWidget({
+        cloudName: 'wishmalokaya', 
+        uploadPreset: 'daredevil'}, (error, result) => { 
+          if (!error && result && result.event === "success") { 
+            console.log('Done! Here is the image info: ', result.info); 
+            dplink = result.info.url;
+          }
+        }
+      )
+      myWidget.open();
+}
+
+
 

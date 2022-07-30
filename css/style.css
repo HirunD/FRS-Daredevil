@@ -19,7 +19,7 @@ canvas {
 video{
     box-shadow: 0px 0px 40px 0px #c40414;
 }
-
+/* 
 .button-classic {
   background-color: #fbeee0;
   border: 2px solid #422800;
@@ -47,7 +47,7 @@ video{
 .button-classic:active {
   box-shadow: #422800 2px 2px 0 0;
   transform: translate(2px, 2px);
-}
+} */
 
 @media (min-width: 768px) {
   .button-classic {
