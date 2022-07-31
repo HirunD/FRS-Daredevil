@@ -31,8 +31,8 @@ async function recognizeFaces() {
   const faceMatcher = new faceapi.FaceMatcher(labeledDescriptors, 0.7);
 
   console.log("Playing");
-  const canvas = faceapi.createCanvasFromMedia(video);
-  document.body.append(canvas);
+  const canvas = document.getElementById("canvas");
+  // document.body.append(canvas);
 
   const displaySize = { width: video.width, height: video.height };
   faceapi.matchDimensions(canvas, displaySize);
@@ -68,7 +68,8 @@ async function recognizeFaces() {
         (k) => resizedDetections[0].expressions[k] === Math.max(...exprArr)
       );
       console.log(result.toString() + " : ", bestExpression);
-      drawBox.draw(canvas);
+      const container = document.getElementById("container");
+      // drawBox.draw(canvas);
 
       let wordIndex = result.toString().lastIndexOf(" ");
       console.log(alreadyInFrame);
@@ -105,6 +106,8 @@ async function recognizeFaces() {
         "at the moment";
       const utterance = new SpeechSynthesisUtterance(speakStr);
       speechSynthesis.speak(utterance);
+      var content = '<a class="panel-block is-active pl-6 pr-6">' + result.toString().substring(0, wordIndex) + " is " + bestExpression + "</a>";
+      container.innerHTML += content;
     });
   }, 2000);
 }
@@ -143,24 +146,24 @@ function loadLabeledImages() {
 
 
       
-document.getElementById("upload_widget").addEventListener("click", function(){
- dpUpload();
-}, false);
+// document.getElementById("upload_widget").addEventListener("click", function(){
+//  dpUpload();
+// }, false);
 
-var dplink = "";
+// var dplink = "";
 
-function dpUpload() {
-    var myWidget = cloudinary.createUploadWidget({
-        cloudName: 'wishmalokaya', 
-        uploadPreset: 'daredevil'}, (error, result) => { 
-          if (!error && result && result.event === "success") { 
-            console.log('Done! Here is the image info: ', result.info); 
-            dplink = result.info.url;
-          }
-        }
-      )
-      myWidget.open();
-}
+// function dpUpload() {
+//     var myWidget = cloudinary.createUploadWidget({
+//         cloudName: 'wishmalokaya', 
+//         uploadPreset: 'daredevil'}, (error, result) => { 
+//           if (!error && result && result.event === "success") { 
+//             console.log('Done! Here is the image info: ', result.info); 
+//             dplink = result.info.url;
+//           }
+//         }
+//       )
+//       myWidget.open();
+// }
 
 
 

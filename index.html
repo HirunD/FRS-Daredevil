@@ -5,25 +5,60 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Face Recognition</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <!-- <link rel="stylesheet" href="./css/style.css"> -->
+    <style>
+        html {
+            height: 100%;
+        }
+
+        body {
+            height: 100%;
+            width: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        canvas {
+            position: absolute;
+            z-index: inherit;
+        }
+
+        video {
+            box-shadow: 0px 0px 40px 0px #c40414;
+        }
+    </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 </head>
 
 <body>
-
-    <div class="content">
-        <video class="glow box box-radius-large has-background-black is-hoverable" id="videoInput" width="720" height="550" muted autoplay>
+    <div class="columns">
+        <div class="column">
+            <div class="content">
+                <canvas class="canvas" id="canvas"></canvas>
+                <video class="glow box box-radius-large is-hoverable" id="videoInput" width="720" height="550" muted
+                    autoplay>
+            </div>
+            <div class="buttons">
+                <button class="button is-primary is-hoverable is-unsilectable" role="button"
+                    onclick="recognizeFaces();">Detect</button>
+            </div>
+        </div>
+        <div class="column is-two-thirds">
+            <div class="container p-3 pr-6 is-fluid" id="container">
+                <p class="panel-heading p-3">Daredevil</p>
+            </div>
+        </div>
     </div>
-    <div class="buttons">
-        <button class="button is-primary is-hoverable is-unsilectable" role="button" onclick="recognizeFaces();">Detect</button>
-    </div>
-    <button id="upload_widget" class="button is-primary">upload</button>
-    <script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
 
 
     <script defer src="./js/face-api.min.js"></script>
     <script defer src="./js/script.js"></script>
-    
+
 </body>
 
 </html>
